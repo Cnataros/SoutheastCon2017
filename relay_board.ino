@@ -1,6 +1,6 @@
 #include "RelayBoard.h"
 
-RelayBoard *relays;
+RelayBoard relays(3, 4, 5, 6, 7);
 
 struct values {
     uint8_t pins[5];
@@ -11,16 +11,15 @@ void read_value(uint8_t pin, struct values *v, RelayBoard *r);
 
 void setup()
 {
-    relays = new RelayBoard(3, 4, 5, 6, 7);
     Serial.begin(9600);
 }
 
 void loop()
 {
     for (int i = 0; i < RelayBoard::PINS; i++) {
-        relays->select(i);
+        relays.select(i);
         delay(3000);
-        read_value(i, &readings, relays);
+        read_value(i, &readings, &relays);
         Serial.print("Reading from ");
         Serial.print(i);
         Serial.print(": ");
