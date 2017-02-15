@@ -1,5 +1,4 @@
 #include "RelayBoard.h"  //including the header file that was made
-//re-add comment for manny purpose
 int decidingAlgo (int reading);
 
 int unswitchedArray[5];
